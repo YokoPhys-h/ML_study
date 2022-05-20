@@ -3,8 +3,9 @@ using Plots
 using LinearAlgebra
 using ForwardDiff
 using ForwardDiff: gradient
+using ProgressMeter
 
-n = 5 # 中間層サイズ
+n = 1 # 中間層サイズ
 
 ## 対象関数を教師情報の代わりに作成
 predict(x) = cos(x)
@@ -51,7 +52,7 @@ plot(X, x -> nn(H, x))
 
 f(H, x) = @inbounds loss(predict(x), nn(H, x))
 
-@showprogress for i in 1:200000  # 200000個のデータ
+@showprogress for i in 1:20000000  # 200000個のデータ
     x = rand()  # ランダムなインプットx
 
     grad_f = @inbounds gradient(H -> f(H, x), H) # 誤差Hに対する勾配
