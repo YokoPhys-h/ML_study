@@ -1,2 +1,2 @@
-## NN_study
-Deep-learningの勉強, 研究用
+## ML_study
+Machine-learningの勉強, 研究用
